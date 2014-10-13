@@ -27,7 +27,7 @@ class HasOffersV3
       end
       http_response = execute_request(http, raw_request)
 
-      Response.new(http_response)
+      Response.new(http_response, @configuration.json_driver)
     end
 
     def execute_request(net_http, raw_request)

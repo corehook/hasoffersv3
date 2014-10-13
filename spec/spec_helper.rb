@@ -34,7 +34,7 @@ def body
 end
 
 def default_return
-  { status: 200, body: Oj.dump(body) }
+  { status: 200, body: JSON.dump(body) }
 end
 
 def data

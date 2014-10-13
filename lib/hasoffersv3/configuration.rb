@@ -1,13 +1,25 @@
 class HasOffersV3
   class Configuration
 
+    def self.default_json_driver
+      @_default_json_driver ||=
+          if defined?(Oj)
+            Oj
+          elsif defined?(MultiJson)
+            MultiJson
+          else
+            JSON
+          end
+    end
+
     DEFAULTS = {
       host: 'api.hasoffers.com',
       protocol: 'http',
       base_path: '/v3',
       network_id: '',
-      api_key: ''
-    }
+      api_key: '',
+      json_driver: self.default_json_driver
+    }.freeze
 
     DEFAULTS.keys.each do |option_name|
       define_method option_name do
@@ -25,7 +37,6 @@ class HasOffersV3
       defaults = DEFAULTS.dup
       @options = options.dup
 
-
       defaults.keys.each do |key|
         # Symbolize only keys that are needed
         @options[key] = @options[key.to_s] if @options.has_key?(key.to_s)
@@ -40,5 +51,6 @@ class HasOffersV3
     def base_uri
       "#{protocol}://#{host}#{base_path}"
     end
+
   end
 end

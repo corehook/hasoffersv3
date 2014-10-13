@@ -1,4 +1,5 @@
 require 'net/http'
+require 'json'
 
 require 'hasoffersv3/client'
 
