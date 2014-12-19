@@ -9,7 +9,7 @@ describe HasOffersV3::Report do
 
     it 'should make a proper request call' do
       response = subject.get_conversions
-      a_request(:post, url).with(body: hash_including({'Method' => 'getConversions'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'getConversions'}))).to have_been_made
       validate_call response
     end
   end
@@ -19,7 +19,7 @@ describe HasOffersV3::Report do
 
     it 'should make a proper request call' do
       response = subject.getConversions
-      a_request(:post, url).with(body: hash_including({'Method' => 'getConversions'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'getConversions'}))).to have_been_made
       validate_call response
     end
 
@@ -41,7 +41,7 @@ describe HasOffersV3::Report do
 
     it 'should make a proper request call' do
       response = subject.get_mod_summary_logs
-      a_request(:get, url).with(query: hash_including({'Method' => 'getModSummaryLogs'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'getModSummaryLogs'}))).to have_been_made
       validate_call response
     end
   end
@@ -53,7 +53,7 @@ describe HasOffersV3::Report do
 
     it 'should make a proper request call' do
       response = subject.getModSummaryLogs
-      a_request(:get, url).with(query: hash_including({'Method' => 'getModSummaryLogs'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'getModSummaryLogs'}))).to have_been_made
       validate_call response
     end
 

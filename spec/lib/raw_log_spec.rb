@@ -12,7 +12,7 @@ describe HasOffersV3::RawLog do
   describe '.get_download_link' do
     it 'should make a proper request call' do
       response = subject.get_download_link log_type: 'clicks', log_filename: 'xxx'
-      a_request(:get, url).with(query: hash_including({'Method' => 'getDownloadLink'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'getDownloadLink'}))).to have_been_made
       validate_call response
     end
 
@@ -32,7 +32,7 @@ describe HasOffersV3::RawLog do
   describe '.get_log_expirations' do
     it 'should make a proper request call' do
       response = subject.get_log_expirations
-      a_request(:get, url).with(query: hash_including({'Method' => 'getLogExpirations'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'getLogExpirations'}))).to have_been_made
       validate_call response
     end
   end
@@ -40,7 +40,7 @@ describe HasOffersV3::RawLog do
   describe '.list_date_dirs' do
     it 'should make a proper request call' do
       response = subject.list_date_dirs log_type: 'clicks'
-      a_request(:get, url).with(query: hash_including({'Method' => 'listDateDirs'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'listDateDirs'}))).to have_been_made
       validate_call response
     end
 
@@ -54,7 +54,7 @@ describe HasOffersV3::RawLog do
   describe '.list_logs' do
     it 'should make a proper request call' do
       response = subject.list_logs log_type: 'clicks', date_dir: '20140101'
-      a_request(:get, url).with(query: hash_including({'Method' => 'listLogs'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'listLogs'}))).to have_been_made
       validate_call response
     end
 
