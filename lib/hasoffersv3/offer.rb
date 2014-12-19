@@ -15,6 +15,11 @@ class HasOffersV3
         post_request 'findAllIdsByAdvertiserId', params
       end
 
+      def find_all_ids_by_affiliate_id(params = {})
+        requires! params, [:affiliate_id]
+        post_request 'findAllIdsByAffiliateId', params
+      end
+
       def find_by_id(params = {})
         requires! params, [:id]
         post_request 'findById', params
