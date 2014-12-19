@@ -44,6 +44,14 @@ describe HasOffersV3::Offer do
     end
   end
 
+  describe '.find_all_ids_by_affiliate_id' do
+    it 'should make a proper request call' do
+      stub_call
+      response = HasOffersV3::Offer.find_all_ids_by_affiliate_id affiliate_id: 1
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'findAllIdsByAffiliateId', 'affiliate_id' => '1'}))).to have_been_made
+    end
+  end
+
   describe '.find_by_id' do
     it 'should make a proper request call' do
       stub_call
