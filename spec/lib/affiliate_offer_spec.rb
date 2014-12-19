@@ -91,4 +91,15 @@ describe HasOffersV3::AffiliateOffer do
     end
   end
 
+  describe '.find_my_offers' do
+    it 'should make a proper request call' do
+      stub_call
+      response = subject.find_my_offers
+      request = a_request(:post, url).with(body: hash_including('Method' => 'findMyOffers'))
+      expect(request).to have_been_made
+
+      validate_call response
+    end
+  end
+
 end
