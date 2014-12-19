@@ -12,7 +12,7 @@ describe HasOffersV3::Affiliate do
   describe '.find_all' do
     it 'should make a proper request call' do
       response = subject.find_all
-      a_request(:post, url).with(body: hash_including({'Method' => 'findAll'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'findAll'}))).to have_been_made
       validate_call response
     end
   end
@@ -21,7 +21,7 @@ describe HasOffersV3::Affiliate do
     it 'should make a proper request call' do
       stub_call :get, nil, Regexp.new(url)
       response = subject.find_by_id id: 1
-      a_request(:get, url).with(query: hash_including({'Method' => 'findById', 'id' => '1'})).should have_been_made
+      expect(a_request(:get, url).with(query: hash_including({'Method' => 'findById', 'id' => '1'}))).to have_been_made
       validate_call response
     end
 
@@ -35,7 +35,7 @@ describe HasOffersV3::Affiliate do
   describe '.update_payment_method_wire' do
     it 'should make a proper request call' do
       response = subject.update_payment_method_wire
-      a_request(:post, url).with(body: hash_including({'Method' => 'updatePaymentMethodWire'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'updatePaymentMethodWire'}))).to have_been_made
       validate_call response
     end
   end
@@ -43,7 +43,7 @@ describe HasOffersV3::Affiliate do
   describe '.update_payment_method_paypal' do
     it 'should make a proper request call' do
       response = subject.update_payment_method_paypal
-      a_request(:post, url).with(body: hash_including({'Method' => 'updatePaymentMethodPaypal'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'updatePaymentMethodPaypal'}))).to have_been_made
       validate_call response
     end
   end

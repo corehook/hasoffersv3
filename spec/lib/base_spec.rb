@@ -34,9 +34,7 @@ describe HasOffersV3::Base do
       it "should make a proper request" do
         stub_call :get
         response = subject.get_request 'test'
-        a_request(:get, url).
-            with(query: hash_including('Method' => 'test')).
-            should have_been_made
+        expect(a_request(:get, url).with(query: hash_including('Method' => 'test'))).to have_been_made
         validate_call response
       end
     end

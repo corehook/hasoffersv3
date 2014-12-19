@@ -9,7 +9,7 @@ describe HasOffersV3::Advertiser do
     it 'should make a proper request call' do
       stub_call
       response = subject.find_all
-      a_request(:post, url).with(body: hash_including({'Method' => 'findAll'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'findAll'}))).to have_been_made
       validate_call response
     end
   end
@@ -18,7 +18,7 @@ describe HasOffersV3::Advertiser do
     it 'should make a proper request call' do
       stub_call
       response = subject.find_all_ids
-      a_request(:post, url).with(body: hash_including({'Method' => 'findAllIds'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'findAllIds'}))).to have_been_made
       validate_call response
     end
   end
@@ -27,7 +27,7 @@ describe HasOffersV3::Advertiser do
     it 'should make a proper request call' do
       stub_call
       response = subject.find_by_id id: 1
-      a_request(:post, url).with(body: hash_including({'Method' => 'findById', 'id' => '1'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'findById', 'id' => '1'}))).to have_been_made
       validate_call response
     end
 
