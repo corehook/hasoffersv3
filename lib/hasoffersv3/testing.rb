@@ -23,7 +23,7 @@ class HasOffersV3
         self.__prepared_request =
           begin
             response = Net::HTTPResponse.new '1.1', status, message
-            response.stub(:body) { body }
+            allow(response).to receive_message(:body).and_return(body)
             response
           end
       end
