@@ -47,4 +47,23 @@ describe HasOffersV3::Affiliate do
       validate_call response
     end
   end
+
+  describe 'create' do
+    context 'when required params are missing' do
+      it 'should fail without zipcode' do
+        expect { subject.create company: "xyz@gmail.com", status: "active" }.to raise_error ArgumentError
+      end
+      it 'should fail without company' do
+        expect { subject.create zipcode: "10178", status: "active" }.to raise_error ArgumentError
+      end
+    end
+
+    it 'should make a successful request call' do
+      response = subject.create company: "xyz@gmail.com", zipcode: "10178"
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'create', 'company' => 'xyz@gmail.com',
+       'zipcode' => '10178'}))).to have_been_made
+      validate_call response
+    end
+  end
+
 end
