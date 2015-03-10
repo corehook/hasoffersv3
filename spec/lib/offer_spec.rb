@@ -126,4 +126,23 @@ describe HasOffersV3::Offer do
       end
     end
   end
+
+  describe '.generate_tracking_link' do
+    it 'should make a proper request call' do
+      stub_call
+      response = subject.generate_tracking_link offer_id: 1, affiliate_id: 123
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'generateTrackingLink','offer_id' => '1',
+       'affiliate_id' => '123'}))).to have_been_made
+      validate_call response
+    end
+
+    context 'when required params are missing' do
+      it 'should fail without offer_id' do
+        expect { subject.generate_tracking_link affiliate_id: 1}.to raise_error ArgumentError
+      end
+      it 'should fail without affiliate_id' do
+        expect { subject.generate_tracking_link offer_id: 10 }.to raise_error ArgumentError
+      end
+    end
+  end
 end
