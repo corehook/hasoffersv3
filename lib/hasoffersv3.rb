@@ -6,7 +6,9 @@ require 'hasoffersv3/client'
   require "hasoffersv3/#{file}"
 end
 
+require 'hasoffersv3/advertiser_billing'
 require 'hasoffersv3/affiliate_offer'
+require 'hasoffersv3/affiliate_billing'
 require 'hasoffersv3/adapter'
 
 class HasOffersV3
@@ -14,8 +16,10 @@ class HasOffersV3
   API_TARGETS = {
     advertisers: HasOffersV3::Advertiser,
     advertiser_users: HasOffersV3::AdvertiserUser,
+    advertiser_billing: HasOffersV3::AdvertiserBilling,
     affiliates: HasOffersV3::Affiliate,
     affiliate_offers: HasOffersV3::AffiliateOffer,
+    affiliate_billing: HasOffersV3::AffiliateBilling,
     conversions: HasOffersV3::Conversion,
     offers: HasOffersV3::Offer,
     raw_logs: HasOffersV3::RawLog,
