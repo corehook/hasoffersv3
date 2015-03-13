@@ -1,3 +1,7 @@
+# 0.2.3
+- Support "Offer/generateTrackingLink" method
+- Support "Affiliate/create" method
+
 # 0.2.2
 - Support "Offer/findAllIdsByAffiliateId" method
 - Support "Affiliate_Offer/findMyOffers" method
