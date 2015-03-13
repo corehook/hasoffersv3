@@ -44,6 +44,11 @@ class HasOffersV3
         requires! params, [:id, :affiliate_id]
         post_request 'removePayout', params
       end
+
+      def generate_tracking_link(params = {})
+        requires! params, [:offer_id, :affiliate_id]
+        post_request 'generateTrackingLink', params
+      end
     end
   end
 end

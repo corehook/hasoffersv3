@@ -19,7 +19,8 @@ class HasOffersV3
       end
 
       def create (params = {})
-        requires! params, [:company, :zipcode]
+        requires! params, [:data]
+        requires! params[:data], [:zipcode, :company]
         post_request 'create', params
       end
     end
