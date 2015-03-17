@@ -1,11 +1,9 @@
-require 'oj'
-
 class HasOffersV3
   class Response
     attr_reader :body, :http_status_code, :http_message, :http_headers
 
-    def initialize(response)
-      @body             = Oj.load(response.body.to_s)
+    def initialize(response, json=default_json_driver)
+      @body             = json.load(response.body.to_s)
       @http_status_code = response.code
       @http_message     = response.message
       @http_headers     = response.to_hash
@@ -59,14 +57,12 @@ class HasOffersV3
       end
     end
 
-  protected
-
+    protected
     def paginated_response?
       @body['response']['data'] and @body['response']['data'].is_a?(Hash) and @body['response']['data'].has_key?('pageCount')
     end
 
-  private
-
+    private
     def get_error_values(obj)
       if obj.is_a? Hash
         obj.values
@@ -74,5 +70,10 @@ class HasOffersV3
         obj.map { |error| error["err_msg"] || error["publicMessage"] }
       end
     end
+
+    def default_json_driver
+      @_default_json_driver ||= ::HasOffersV3::Configuration.default_json_driver
+    end
+
   end
 end
