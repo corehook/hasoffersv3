@@ -23,6 +23,11 @@ class HasOffersV3
         requires! params[:data], [:zipcode, :company]
         post_request 'create', params
       end
+
+      def get_tier(params = {})
+        requires! params, [:id]
+        post_request 'getAffiliateTier', params
+      end
     end
   end
 end

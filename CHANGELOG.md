@@ -1,3 +1,7 @@
+# 0.2.4
+- Support "Offer/getTierPayouts" method
+- Support "Affiliate/getAffiliateTier" method
+
 # 0.2.3
 - Support "Offer/generateTrackingLink" method
 - Support "Affiliate/create" method

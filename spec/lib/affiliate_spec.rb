@@ -69,4 +69,17 @@ describe HasOffersV3::Affiliate do
     end
   end
 
+  describe '.get_tier' do
+    it 'should make a proper request call' do
+      stub_call
+      response = subject.get_tier id: 1
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'getAffiliateTier','id' => '1'}))).to have_been_made
+      validate_call response
+    end
+
+    it 'should fail without id' do
+      expect { subject.get_tier }.to raise_error ArgumentError
+    end
+  end
+
 end
