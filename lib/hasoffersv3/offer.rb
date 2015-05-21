@@ -49,6 +49,11 @@ class HasOffersV3
         requires! params, [:offer_id, :affiliate_id]
         post_request 'generateTrackingLink', params
       end
+
+      def get_tier_payouts(params = {})
+        requires! params, [:id]
+        post_request 'getTierPayouts', params
+      end
     end
   end
 end

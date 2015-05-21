@@ -145,4 +145,17 @@ describe HasOffersV3::Offer do
       end
     end
   end
+
+  describe '.get_tier_payouts' do
+    it 'should make a proper request call' do
+      stub_call
+      response = subject.get_tier_payouts id: 1
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'getTierPayouts','id' => '1'}))).to have_been_made
+      validate_call response
+    end
+
+    it 'should fail without id' do
+      expect { subject.get_tier_payouts }.to raise_error ArgumentError
+    end
+  end
 end
