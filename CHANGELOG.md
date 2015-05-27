@@ -1,3 +1,6 @@
+# 0.2.5
+- Support "Application/findAllAffiliateTiers" method
+
 # 0.2.4
 - Support "Offer/getTierPayouts" method
 - Support "Affiliate/getAffiliateTier" method
