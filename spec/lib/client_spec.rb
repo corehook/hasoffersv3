@@ -13,10 +13,10 @@ describe HasOffersV3::Client do
 
     it 'should be different configs' do
       default_connection = HasOffersV3::Client.new(configuration_to_default_host)
-      expect(default_connection.base_uri).to eq('http://api.hasoffers.com/v3')
+      expect(default_connection.base_uri).to eq('https://api.hasoffers.com/v3')
 
       proxy_connection = HasOffersV3::Client.new(config_for_proxy)
-      expect(proxy_connection.base_uri).to eq('http://api.applift.com/v3')
+      expect(proxy_connection.base_uri).to eq('https://api.applift.com/v3')
     end
 
   end
