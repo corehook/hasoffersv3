@@ -1,3 +1,6 @@
+# 0.2.6
+- Use `https` by default
+
 # 0.2.5
 - Support "Application/findAllAffiliateTiers" method
 
