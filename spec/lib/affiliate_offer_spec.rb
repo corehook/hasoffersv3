@@ -10,7 +10,7 @@ describe HasOffersV3::AffiliateOffer do
   end
 
   context 'urls' do
-    specify { expect(url).to eq('http://api.hasoffers.com/v3/Affiliate_Offer.json') }
+    specify { expect(url).to eq('https://api.hasoffers.com/v3/Affiliate_Offer.json') }
   end
 
   describe '.find_all' do
