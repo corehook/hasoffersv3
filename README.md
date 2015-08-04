@@ -21,7 +21,19 @@ Supported ruby versions:
 
 ## Usage
 
-Basic usage:
+First, check if the method you want to call is already defined in `hasoffersv3/lib/hasoffersv3/*`. If not, you will need to add the method yourself (either just use your fork or submit a PR with your changes).
+
+Next, create an initializer in your project in `config/intializers` and configure your API credentials like so:
+
+```ruby
+HasOffersV3.configure do |config|
+  config.api_key    = ENV['YOUR_HAS_OFFERS_API_KEY']
+  config.network_id = ENV['YOUR_HAS_OFFERS_NETWORK_ID']
+end
+```
+
+You can now use the defined methods, following this pattern:
+
 
 ```ruby
 HasOffersV3::ControllerName.snake_case_method_name
@@ -34,7 +46,27 @@ Naming is the same as in HasOffers documentation, also if it requires attributes
 Examples:
 
 ```ruby
-HasOffersV3::Affiliate.update_payment_method_wire affiliate_id: '877', data: []
+HasOffersV3::Affiliate.update_payment_method_wire({ affiliate_id: '877', data: {} })
+```
+
+  or when working with forms:
+
+```ruby
+HasOffersV3::Advertiser.signup({
+  account: {
+    company: params[:company_name],
+    country: params[:company_country,
+    address1: 'Change me 123',
+    zipcode: '123123'
+  },
+  user: {
+    first_name: params[:user_name],
+    email: params[:user_email],
+    password: params[:user_password],
+    password_confirmation: params[:user_password_confirmation]
+  },
+  return_object: 1
+})
 ```
 
 ## Testing
