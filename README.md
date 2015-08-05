@@ -55,7 +55,7 @@ HasOffersV3::Affiliate.update_payment_method_wire({ affiliate_id: '877', data: {
 HasOffersV3::Advertiser.signup({
   account: {
     company: params[:company_name],
-    country: params[:company_country,
+    country: params[:company_country],
     address1: 'Change me 123',
     zipcode: '123123'
   },
