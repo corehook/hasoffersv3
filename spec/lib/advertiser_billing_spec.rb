@@ -9,7 +9,7 @@ describe HasOffersV3::AdvertiserBilling do
     it 'makes a proper request call' do
       stub_call
       response = subject.find_all_invoices
-      a_request(:post, url).with(body: hash_including({'Method' => 'findAllInvoices'})).should have_been_made
+      expect(a_request(:post, url).with(body: hash_including({'Method' => 'findAllInvoices'}))).to have_been_made
       validate_call response
     end
   end
@@ -19,10 +19,11 @@ describe HasOffersV3::AdvertiserBilling do
       it 'makes a proper request call' do
         stub_call
         response = subject.create_invoice(data: {advertiser_id: 1, start_date: '2014-10-01', end_date: '2014-10-30'})
-        a_request(:post, url).with(body: hash_including({
+        req = a_request(:post, url).with(body: hash_including({
           'Method' => 'createInvoice',
           'data'   => {'advertiser_id' => '1', 'start_date' => '2014-10-01', 'end_date' => '2014-10-30'}
-        })).should have_been_made
+        }))
+        expect(req).to have_been_made
         validate_call response
       end
     end
@@ -39,7 +40,7 @@ describe HasOffersV3::AdvertiserBilling do
       it 'makes a proper request call' do
         stub_call
         response = subject.find_invoice_by_id(id: '1')
-        a_request(:post, url).with(body: hash_including({'Method' => 'findInvoiceById', 'id' => '1'})).should have_been_made
+        expect(a_request(:post, url).with(body: hash_including({'Method' => 'findInvoiceById', 'id' => '1'}))).to have_been_made
         validate_call response
       end
     end
