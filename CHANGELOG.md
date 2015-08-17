@@ -1,3 +1,6 @@
+# 0.2.7
+- Support "OfferPixel": findAll, find_all_by_ids, find_by_id, get_allowed_types
+
 # 0.2.6
 - Use `https` by default
 
