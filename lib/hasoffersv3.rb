@@ -23,7 +23,7 @@ class HasOffersV3
     affiliate_billing: HasOffersV3::AffiliateBilling,
     conversions: HasOffersV3::Conversion,
     offers: HasOffersV3::Offer,
-    offer_pixel: HasOffersV3::OfferPixel,
+    offer_pixels: HasOffersV3::OfferPixel,
     raw_logs: HasOffersV3::RawLog,
     reports: HasOffersV3::Report,
     application: HasOffersV3::Application
