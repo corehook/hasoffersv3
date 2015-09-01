@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HasOffersV3::OfferPixel do
-  subject { HasOffersV3::OfferPixel }
+  subject { HasOffersV3::OfferPixel.new }
 
   let(:url) { api_url 'OfferPixel' }
 
@@ -31,14 +31,14 @@ describe HasOffersV3::OfferPixel do
   describe '.find_all_by_ids' do
     it 'should make a proper request call' do
       stub_call
-      response = HasOffersV3::OfferPixel.find_all_by_ids ids: [1]
+      response = subject.find_all_by_ids ids: [1]
       expect(a_request(:post, url).with(body: hash_including({'Method' => 'findAllByIds'}))).to have_been_made
       validate_call response
     end
 
     context 'when there is no id' do
       it 'should raise exception' do
-        expect { HasOffersV3::OfferPixel.find_all_by_ids }.to raise_error ArgumentError
+        expect { subject.find_all_by_ids }.to raise_error ArgumentError
       end
     end
   end
@@ -46,14 +46,14 @@ describe HasOffersV3::OfferPixel do
   describe '.find_by_id' do
     it 'should make a proper request call' do
       stub_call
-      response = HasOffersV3::OfferPixel.find_by_id id: [1]
+      response = subject.find_by_id id: [1]
       expect(a_request(:post, url).with(body: hash_including({'Method' => 'findById'}))).to have_been_made
       validate_call response
     end
 
     context 'when there is no id' do
       it 'should raise exception' do
-        expect { HasOffersV3::OfferPixel.find_by_id }.to raise_error ArgumentError
+        expect { subject.find_by_id }.to raise_error ArgumentError
       end
     end
   end
@@ -61,14 +61,14 @@ describe HasOffersV3::OfferPixel do
   describe '.get_allowed_types' do
     it 'should make a proper request call' do
       stub_call
-      response = HasOffersV3::OfferPixel.get_allowed_types offer_id: [1]
+      response = subject.get_allowed_types offer_id: [1]
       expect(a_request(:post, url).with(body: hash_including({'Method' => 'getAllowedTypes'}))).to have_been_made
       validate_call response
     end
 
     context 'when there is no offer_id' do
       it 'should raise exception' do
-        expect { HasOffersV3::OfferPixel.get_allowed_types }.to raise_error ArgumentError
+        expect { subject.get_allowed_types }.to raise_error ArgumentError
       end
     end
   end

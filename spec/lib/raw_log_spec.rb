@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HasOffersV3::RawLog do
-  subject { HasOffersV3::RawLog }
+  subject { HasOffersV3::RawLog.new }
 
   let(:url)  { Regexp.new api_url('RawLog') }
 

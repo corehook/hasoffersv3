@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HasOffersV3::Advertiser do
-  subject { HasOffersV3::Advertiser }
+  subject { HasOffersV3::Advertiser.new }
 
   let(:url)  { api_url 'Advertiser' }
 

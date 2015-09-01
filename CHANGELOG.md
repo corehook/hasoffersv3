@@ -1,3 +1,6 @@
+# 0.3.0
+- [#39] Removed depreacted methods. Updated structure to use separated client configs.
+
 # 0.2.7
 - [#37][#38] Support "OfferPixel": findAll, find_all_by_ids, find_by_id, get_allowed_types
 

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HasOffersV3::AffiliateBilling do
-  subject { HasOffersV3::AffiliateBilling }
+  subject { HasOffersV3::AffiliateBilling.new }
 
   let(:url) { api_url 'AffiliateBilling' }
 

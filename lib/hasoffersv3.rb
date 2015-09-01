@@ -10,7 +10,6 @@ end
 require 'hasoffersv3/advertiser_billing'
 require 'hasoffersv3/affiliate_offer'
 require 'hasoffersv3/affiliate_billing'
-require 'hasoffersv3/adapter'
 
 class HasOffersV3
 
@@ -61,9 +60,13 @@ class HasOffersV3
     @configuration = ::HasOffersV3::Configuration.new options
   end
 
+  def client
+    ::HasOffersV3::Client.new(@configuration)
+  end
+
   API_TARGETS.each do |name, target|
     define_method name do
-      HasOffersV3::Adapter.new(configuration, target)
+      target.new(client)
     end
   end
 
