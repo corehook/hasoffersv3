@@ -15,6 +15,7 @@ class HasOffersV3
     DEFAULTS = {
       host: 'api.hasoffers.com',
       protocol: 'https',
+      read_timeout: 60,
       base_path: '/v3',
       network_id: '',
       api_key: '',

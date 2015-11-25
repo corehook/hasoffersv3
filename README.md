@@ -27,8 +27,9 @@ Next, create an initializer in your project in `config/intializers` and configur
 
 ```ruby
 HasOffersV3.configure do |config|
-  config.api_key    = ENV['YOUR_HAS_OFFERS_API_KEY']
-  config.network_id = ENV['YOUR_HAS_OFFERS_NETWORK_ID']
+  config.api_key      = ENV['YOUR_HAS_OFFERS_API_KEY']
+  config.network_id   = ENV['YOUR_HAS_OFFERS_NETWORK_ID']
+  config.read_timeout = 10
 end
 ```
 
