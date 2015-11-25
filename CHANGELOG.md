@@ -1,3 +1,6 @@
+# HEAD
+- [#41] Added config option `read_timeout` to changed default timeout to 60
+
 # 0.3.0
 - [#39] Removed depreacted methods. Updated structure to use separated client configs.
 
