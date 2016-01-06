@@ -13,6 +13,8 @@ class HasOffersV3
     end
 
     DEFAULTS = {
+      proxy_ip: '',
+      proxy_port: '',
       host: 'api.hasoffers.com',
       protocol: 'https',
       read_timeout: 60,

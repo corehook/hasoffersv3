@@ -50,7 +50,15 @@ class HasOffersV3
     end
 
     def new_http(uri)
-      http = Net::HTTP.new(uri.host, uri.port)
+      if @configuration.proxy_ip and @configuration.proxy_port
+        http = Net::HTTP.new(uri.host, uri.port, @configuration.proxy_ip, @configuration.proxy_port )
+
+        # Disable SSL verification
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      else
+        http = Net::HTTP.new(uri.host, uri.port)
+      end
+
       http.use_ssl = true if uri.scheme == 'https'
       http.read_timeout = configuration.read_timeout
       http
