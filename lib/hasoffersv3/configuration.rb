@@ -19,6 +19,7 @@ class HasOffersV3
       base_path: '/v3',
       network_id: '',
       api_key: '',
+      network_token: '',
       json_driver: self.default_json_driver
     }.freeze
 
