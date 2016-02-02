@@ -1,7 +1,7 @@
 class HasOffersV3
   class Conversion < Base
-    def find_all(params = {})
-      get_request 'findAll', params
+    def find_all(params = {}, &block)
+      get_request 'findAll', params, &block
     end
 
     def find_added_conversions(params = {})

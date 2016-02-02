@@ -29,9 +29,9 @@ class HasOffersV3
       post_request 'getGroups', params
     end
 
-    def get_approved_affiliate_ids(params = {})
+    def get_approved_affiliate_ids(params = {}, &block)
       requires! params, [:id]
-      post_request 'getApprovedAffiliateIds', params
+      post_request 'getApprovedAffiliateIds', params, &block
     end
 
     def set_payout(params = {})
